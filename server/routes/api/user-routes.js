@@ -1,3 +1,5 @@
+// Routes are: /api/users
+
 const router = require("express").Router();
 const {
   createUser,
@@ -19,5 +21,11 @@ router.route("/login").post(login);
 router.route("/me").get(authMiddleware, getSingleUser);
 
 router.route("/books/:bookId").delete(authMiddleware, deleteBook);
+/**
+ * client/utils/API.js:
+ * fetch("/api/users/books/5", {
+ *  method: "DELETE"
+ * }).then...
+ */
 
 module.exports = router;
